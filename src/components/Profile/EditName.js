@@ -20,13 +20,14 @@ class EditName extends Component {
 			lastName: e.target.value,
 		});
 	};
-	navBack = (e) => {
-		const { history } = this.props;
-		history.push("/profile");
-	};
+	
 	updateName = (e) => {
 		localStorage.setItem("firstName", this.state.firstName);
 		localStorage.setItem("lastName", this.state.lastName);
+		const { history } = this.props;
+		history.push("/profile");
+	};
+	navBack = (e) => {
 		const { history } = this.props;
 		history.push("/profile");
 	};

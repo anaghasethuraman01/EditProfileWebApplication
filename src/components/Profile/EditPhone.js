@@ -5,8 +5,20 @@ class EditPhone extends Component {
 		//Call the constrictor of Super class i.e The Component
 		super(props);
 		//maintain the state required for this component
-		this.state = {};
+		this.state = {
+			phone: localStorage.getItem("phone"),
+		};
 	}
+	phoneChangeHandler = (e) => {
+		this.setState({
+			phone: e.target.value,
+		});
+	};
+	updatePhone = () => {
+		localStorage.setItem("phone", this.state.phone);
+		const { history } = this.props;
+		history.push("/profile");
+	};
 	navBack = (e) => {
 		const { history } = this.props;
 		history.push("/profile");
@@ -23,10 +35,17 @@ class EditPhone extends Component {
 						<div>
 							<div class="inputborder">
 								Your phone number
-								<input type="text" className="addinput" />
+								<input
+									type="text"
+									value={this.state.phone}
+									onChange={this.phoneChangeHandler}
+									className="addinput"
+								/>
 							</div>
 						</div>
-						<button class="updatebtn">Update</button>
+						<button class="updatebtn" onClick={this.updatePhone}>
+							Update
+						</button>
 					</div>
 				</div>
 			</div>

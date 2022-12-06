@@ -5,8 +5,22 @@ class EditDetails extends Component {
 		//Call the constrictor of Super class i.e The Component
 		super(props);
 		//maintain the state required for this component
-		this.state = {};
+		this.state = {
+			details: localStorage.getItem("details"),
+		};
 	}
+	detailsChangeHandler = (e) => {
+		this.setState({
+			details: e.target.value,
+		});
+	};
+
+	updateDetails = (e) => {
+		localStorage.setItem("details", this.state.details);
+
+		const { history } = this.props;
+		history.push("/profile");
+	};
 	navBack = (e) => {
 		const { history } = this.props;
 		history.push("/profile");
@@ -24,10 +38,17 @@ class EditDetails extends Component {
 							<div class="inputborder">
 								Write a little about yourself. Do you like chatting? Are you a
 								smoker? Do you bring pets with you? Etc
-								<input type="text" className="addinput" />
+								<input
+									type="text"
+									value={this.state.details}
+									onChange={this.detailsChangeHandler}
+									className="addinput"
+								/>
 							</div>
 						</div>
-						<button class="updatebtn">Update</button>
+						<button class="updatebtn" onClick={this.updateDetails}>
+							Update
+						</button>
 					</div>
 				</div>
 			</div>

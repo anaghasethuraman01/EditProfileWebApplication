@@ -5,8 +5,22 @@ class EditEmail extends Component {
 		//Call the constrictor of Super class i.e The Component
 		super(props);
 		//maintain the state required for this component
-		this.state = {};
+		this.state = {
+			email: localStorage.getItem("email"),
+		};
 	}
+	emailChangeHandler = (e) => {
+		this.setState({
+			email: e.target.value,
+		});
+	};
+
+	updateEmail = (e) => {
+		localStorage.setItem("email", this.state.email);
+
+		const { history } = this.props;
+		history.push("/profile");
+	};
 	navBack = (e) => {
 		const { history } = this.props;
 		history.push("/profile");
@@ -23,10 +37,17 @@ class EditEmail extends Component {
 						<div>
 							<div class="inputborder">
 								Your email address
-								<input type="text" className="addinput" />
+								<input
+									type="text"
+									value={this.state.email}
+									onChange={this.emailChangeHandler}
+									className="addinput"
+								/>
 							</div>
 						</div>
-						<button class="updatebtn">Update</button>
+						<button class="updatebtn" onClick={this.updateEmail}>
+							Update
+						</button>
 					</div>
 				</div>
 			</div>
