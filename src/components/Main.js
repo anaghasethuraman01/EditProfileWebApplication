@@ -6,6 +6,18 @@ import EditName from "./Profile/EditName";
 import EditPhone from "./Profile/EditPhone";
 import Profile from "./Profile/Profile";
 class Main extends Component {
+	constructor(props) {
+		//Call the constrictor of Super class i.e The Component
+		super(props);
+		localStorage.setItem("firstName", "Anagha");
+		localStorage.setItem("lastName", "Sethuraman");
+		localStorage.setItem("phone", 123456789);
+		localStorage.setItem("email", "anagha@gmail.com");
+		localStorage.setItem(
+			"details",
+			"I am currently pursuing my Masters in Software Engineering from San Jose State University"
+		);
+	}
 	render() {
 		return (
 			<div>

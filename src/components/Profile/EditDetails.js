@@ -1,11 +1,24 @@
 import React, { Component } from "react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 class EditDetails extends Component {
+	constructor(props) {
+		//Call the constrictor of Super class i.e The Component
+		super(props);
+		//maintain the state required for this component
+		this.state = {};
+	}
+	navBack = (e) => {
+		const { history } = this.props;
+		history.push("/profile");
+	};
 	render() {
 		return (
 			<div>
 				<div className="container ">
 					<div className="login-form">
-						<button class="backarrow">back</button>
+						<button class="backarrow" onClick={this.navBack}>
+							<AiOutlineArrowLeft />
+						</button>
 						<h3 class="inputs">What type of passenger are you?</h3>
 						<div>
 							<div class="inputborder">

@@ -11,10 +11,19 @@ class Profile extends Component {
 	constructor(props) {
 		//Call the constrictor of Super class i.e The Component
 		super(props);
+
 		//maintain the state required for this component
-		this.state = {};
+		this.state = {
+			firstName: localStorage.getItem("firstName"),
+			lastName: localStorage.getItem("lastName"),
+			phone: localStorage.getItem("phone"),
+			email: localStorage.getItem("email"),
+			details: localStorage.getItem("details"),
+		};
 	}
 	editName = (e) => {
+		localStorage.setItem("firstName", this.state.firstName);
+		localStorage.setItem("lastName", this.state.lastName);
 		const { history } = this.props;
 		history.push("/editname");
 	};
@@ -55,7 +64,7 @@ class Profile extends Component {
 						</div>
 						<div class="values">Name</div>
 						<div class="inputs">
-							Anagha Sethuraman
+							{this.state.firstName} {this.state.lastName}
 							<button class="editbtn" onClick={this.editName}>
 								<MdArrowForwardIos />
 							</button>
@@ -65,7 +74,7 @@ class Profile extends Component {
 						<br />
 						<div class="values">Phone</div>
 						<div class="inputs">
-							123456789
+							{this.state.phone}
 							<button class="editbtn" onClick={this.editPhone}>
 								<MdArrowForwardIos />
 							</button>
@@ -76,7 +85,7 @@ class Profile extends Component {
 						<br />
 						<div class="values">Email</div>
 						<div class="inputs">
-							anagha@gmail.com
+							{this.state.email}
 							<button class="editbtn" onClick={this.editEmail}>
 								<MdArrowForwardIos />
 							</button>
@@ -86,8 +95,7 @@ class Profile extends Component {
 						<br />
 						<div class="values">Tell us about yourself</div>
 						<div class="inputs">
-							I am currently pursuing my Masters in Software Engineering from
-							San Jose State University
+							{this.state.details}
 							<button class="editbtn" onClick={this.editDetails}>
 								<MdArrowForwardIos />
 							</button>
