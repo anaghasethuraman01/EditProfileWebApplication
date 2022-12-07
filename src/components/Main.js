@@ -13,7 +13,7 @@ class Main extends Component {
 		super(props);
 		localStorage.setItem("firstName", "Anagha");
 		localStorage.setItem("lastName", "Sethuraman");
-		localStorage.setItem("phone", 123456789);
+		localStorage.setItem("phone", 1234567892);
 		localStorage.setItem("email", "anagha@gmail.com");
 		localStorage.setItem(
 			"details",
@@ -23,7 +23,7 @@ class Main extends Component {
 	render() {
 		return (
 			<div>
-				<Route path="/" component={Home}/>
+				<Route path="/" component={Home} />
 				<Route path="/profile" component={Profile} />
 				<Route path="/editname" component={EditName} />
 				<Route path="/editphone" component={EditPhone} />
