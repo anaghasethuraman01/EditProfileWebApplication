@@ -19,13 +19,19 @@ class Profile extends Component {
 			phone: localStorage.getItem("phone"),
 			email: localStorage.getItem("email"),
 			details: localStorage.getItem("details"),
+			photo: localStorage.getItem("photo"),
 		};
 	}
+
 	editName = (e) => {
 		localStorage.setItem("firstName", this.state.firstName);
 		localStorage.setItem("lastName", this.state.lastName);
 		const { history } = this.props;
 		history.push("/editname");
+	};
+	editPhoto = (e) => {
+		const { history } = this.props;
+		history.push("/editphoto");
 	};
 	editPhone = (e) => {
 		const { history } = this.props;
@@ -41,9 +47,30 @@ class Profile extends Component {
 	};
 
 	render() {
-		//redirect based on successful login
 		console.log("render called");
-
+		var profilePic = null;
+		//console.log(localStorage.getItem("photo"));
+		if (localStorage.getItem("photo") != null) {
+			profilePic = (
+				<div>
+					<img
+						src={this.state.photo}
+						alt="No image added. Add Image."
+						class="profilepic"
+					/>
+				</div>
+			);
+		} else {
+			profilePic = (
+				<div>
+					<img
+						src={profilepic}
+						alt="No image added. Add Image."
+						class="profilepic"
+					></img>
+				</div>
+			);
+		}
 		return (
 			<div>
 				<div className="container">
@@ -52,12 +79,8 @@ class Profile extends Component {
 
 						<div class="wrapper">
 							<div class="content">
-								<img
-									src={profilepic}
-									alt="No image added. Add Image."
-									class="profilepic"
-								/>
-								<button class="fas fa-download">
+								{profilePic}
+								<button class="fas fa-download" onClick={this.editPhoto}>
 									<MdModeEditOutline />
 								</button>
 							</div>

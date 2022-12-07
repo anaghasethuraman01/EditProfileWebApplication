@@ -4,6 +4,7 @@ import EditDetails from "./Profile/EditDetails";
 import EditEmail from "./Profile/EditEmail";
 import EditName from "./Profile/EditName";
 import EditPhone from "./Profile/EditPhone";
+import EditPhoto from "./Profile/EditPhoto";
 import Profile from "./Profile/Profile";
 class Main extends Component {
 	constructor(props) {
@@ -26,6 +27,7 @@ class Main extends Component {
 				<Route path="/editphone" component={EditPhone} />
 				<Route path="/editemail" component={EditEmail} />
 				<Route path="/editdetails" component={EditDetails} />
+				<Route path='/editphoto' component={EditPhoto}/>
 			</div>
 		);
 	}
