@@ -25,9 +25,13 @@ class Home extends Component {
 			<div>
 				<div className="container">
 					<div className="login-form">
-						<button class="chbtn" onClick={this.profilePage}>
+						<button
+							class="chbtn"
+							onClick={this.profilePage}
+							style={{ width: "80px" }}
+						>
 							{" "}
-							Go to challenge
+							Please click here to view to Coding challenge Application
 						</button>
 					</div>
 				</div>
