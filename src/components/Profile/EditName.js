@@ -20,12 +20,27 @@ class EditName extends Component {
 			lastName: e.target.value,
 		});
 	};
-	
+
+	validate = () => {
+		let isValid = true;
+		if (this.state.firstName === "" || this.state.firstName === " ") {
+			alert("First Name cannot be empty");
+			isValid = false;
+		}
+		if (this.state.lastName === "" || this.state.lastName === " ") {
+			alert("Last Name cannot be empty");
+			isValid = false;
+		}
+
+		return isValid;
+	};
 	updateName = (e) => {
-		localStorage.setItem("firstName", this.state.firstName);
-		localStorage.setItem("lastName", this.state.lastName);
-		const { history } = this.props;
-		history.push("/profile");
+		if (this.validate() == true) {
+			localStorage.setItem("firstName", this.state.firstName);
+			localStorage.setItem("lastName", this.state.lastName);
+			const { history } = this.props;
+			history.push("/profile");
+		}
 	};
 	navBack = (e) => {
 		const { history } = this.props;
@@ -41,7 +56,7 @@ class EditName extends Component {
 						</button>
 						<h3 class="inputs">What's your name?</h3>
 						<div class="flexdir">
-							<div class="inputborder">
+							<div class="inputbordernames">
 								First Name
 								<input
 									onChange={this.firstNameChangeHandler}
@@ -49,8 +64,12 @@ class EditName extends Component {
 									className="addinput"
 									value={this.state.firstName}
 								/>
+								{/* <div className="errorMsg">
+									{this.state.validationErr.firstName}
+								</div> */}
 							</div>
-							<div class="inputborder">
+
+							<div class="inputbordernames">
 								Last Name
 								<input
 									onChange={this.lastNameChangeHandler}

@@ -1,7 +1,7 @@
 .login-form {
 	text-align: center;
 	margin: 2rem;
-	padding-top: 50px;
+	padding-top: 10px;
 }
 body {
 	background-color: whitesmoke;
@@ -55,15 +55,14 @@ body {
 .content .fa-download {
 	position: absolute;
 	top: 20px;
-	right: 1px;
+	right: 0.5px;
 	border-radius: 50%;
 	border: none;
-	font-size: large;
+
 	background-color: white;
 	color: blue;
 }
 .updatebtn {
-	
 	margin-top: 15rem;
 	color: white;
 	background-color: black;
@@ -82,7 +81,16 @@ body {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid lightgrey;
-
+	height: auto;
+	margin-top: 2rem;
+	color: gray;
+	text-align: left;
+}
+.inputbordernames {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid lightgrey;
+	width: 100px;
 	height: auto;
 	margin-top: 2rem;
 	color: gray;
@@ -110,4 +118,12 @@ body {
 	top: 20px;
 	left: 5px;
 	font-size: larger;
+}
+.bbbb {
+	display: none;
+}
+.errorMsg {
+	color: red;
+	font-size: 17px;
+	margin: 15px;
 }

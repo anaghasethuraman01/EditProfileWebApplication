@@ -14,12 +14,28 @@ class EditEmail extends Component {
 			email: e.target.value,
 		});
 	};
+	validate = () => {
+		let isValid = true;
+		if (this.state.email === "" || this.state.email === " ") {
+			alert("Email cannot be empty");
+			isValid = false;
+		}
+		var validEmail =
+			/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+		if (!this.state.email.match(validEmail)) {
+			alert("Email is not valid");
+			isValid = false;
+		}
 
+		return isValid;
+	};
 	updateEmail = (e) => {
-		localStorage.setItem("email", this.state.email);
+		if (this.validate()) {
+			localStorage.setItem("email", this.state.email);
 
-		const { history } = this.props;
-		history.push("/profile");
+			const { history } = this.props;
+			history.push("/profile");
+		}
 	};
 	navBack = (e) => {
 		const { history } = this.props;

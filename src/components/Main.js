@@ -6,6 +6,7 @@ import EditName from "./Profile/EditName";
 import EditPhone from "./Profile/EditPhone";
 import EditPhoto from "./Profile/EditPhoto";
 import Profile from "./Profile/Profile";
+import Home from "./Home";
 class Main extends Component {
 	constructor(props) {
 		//Call the constrictor of Super class i.e The Component
@@ -22,12 +23,13 @@ class Main extends Component {
 	render() {
 		return (
 			<div>
+				<Route path="/" component={Home}/>
 				<Route path="/profile" component={Profile} />
 				<Route path="/editname" component={EditName} />
 				<Route path="/editphone" component={EditPhone} />
 				<Route path="/editemail" component={EditEmail} />
 				<Route path="/editdetails" component={EditDetails} />
-				<Route path='/editphoto' component={EditPhoto}/>
+				<Route path="/editphoto" component={EditPhoto} />
 			</div>
 		);
 	}

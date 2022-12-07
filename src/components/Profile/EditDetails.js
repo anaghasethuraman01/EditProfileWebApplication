@@ -14,12 +14,22 @@ class EditDetails extends Component {
 			details: e.target.value,
 		});
 	};
+	validate = () => {
+		let isValid = true;
+		if (this.state.details === "" || this.state.details === " ") {
+			alert("Details cannot be empty");
+			isValid = false;
+		}
 
+		return isValid;
+	};
 	updateDetails = (e) => {
-		localStorage.setItem("details", this.state.details);
+		if (this.validate()) {
+			localStorage.setItem("details", this.state.details);
 
-		const { history } = this.props;
-		history.push("/profile");
+			const { history } = this.props;
+			history.push("/profile");
+		}
 	};
 	navBack = (e) => {
 		const { history } = this.props;

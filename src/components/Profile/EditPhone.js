@@ -14,10 +14,26 @@ class EditPhone extends Component {
 			phone: e.target.value,
 		});
 	};
+	validate = () => {
+		let isValid = true;
+		if (this.state.phone === "" || this.state.phone === " ") {
+			alert("Phone Number cannot be empty");
+			isValid = false;
+		}
+		var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+		if (!this.state.phone.match(phoneno)) {
+			alert("Phone number is not valid");
+			isValid = false;
+		}
+
+		return isValid;
+	};
 	updatePhone = () => {
-		localStorage.setItem("phone", this.state.phone);
-		const { history } = this.props;
-		history.push("/profile");
+		if (this.validate() == true) {
+			localStorage.setItem("phone", this.state.phone);
+			const { history } = this.props;
+			history.push("/profile");
+		}
 	};
 	navBack = (e) => {
 		const { history } = this.props;
