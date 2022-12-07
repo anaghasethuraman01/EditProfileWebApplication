@@ -44,7 +44,7 @@ const EditPhoto = (props) => {
 
 						<br />
 						<input type="file" name="myImage" onChange={handleChange} />
-						<button class="updatebtn" onClick={updatePhoto}>
+						<button class="updateimgbtn" onClick={updatePhoto}>
 							Update
 						</button>
 					</div>

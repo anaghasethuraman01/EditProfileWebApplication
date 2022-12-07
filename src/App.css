@@ -63,7 +63,15 @@ body {
 	color: blue;
 }
 .updatebtn {
+	
 	margin-top: 15rem;
+	color: white;
+	background-color: black;
+	width: 15rem;
+	height: 2.5rem;
+	border: none;
+}
+.updateimgbtn {
 	color: white;
 	background-color: black;
 	width: 15rem;
